@@ -17,7 +17,7 @@ class MouseHandler implements MouseListener {
 
     public void mouseExited(MouseEvent e) {
     }
-    public void mousePressed(MouseEvent e) { 
+    public void mousePressed(MouseEvent e) { //마우스 이동하면 타일이동
         if (_imagePanel.processInput(e.getX(), e.getY())) {
             playClickSound();
         }
@@ -29,7 +29,7 @@ class MouseHandler implements MouseListener {
     public void mouseReleased(MouseEvent e) {
     }
 
-    private void playClickSound() { 
+    private void playClickSound() { //오디오
         try
         {
             String audioClickFileName = "do.wav";
