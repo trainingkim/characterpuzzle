@@ -20,7 +20,7 @@ class ImagePanel extends JPanel {
     private int blankCell; //마지막 타일 초기값 
     private int blankCellCol; // 빈 타일의 X 좌표값
     private int blankCellRow; // 빈 타일의 Y 좌표값
-    private int counter; // 점수 횟수
+    private int counter; // 시도 횟수
     private boolean bingoState; // 타일들의 완성 값
     ImagePanel() {
         toolkit = getToolkit();
@@ -29,7 +29,7 @@ class ImagePanel extends JPanel {
         blankCellCol = 2; // 초기 빈 타일 X 위치
         blankCellRow = 2; // 초기 빈 타일 Y 위치
         blankCell = _cells[blankCellRow][blankCellCol];
-        counter = 0; // 점수(클릭 횟수)
+        counter = 0; // 시도(클릭 횟수)
         bingoState = checkBingoState(); // 퍼즐 완성 검사
     }
 
@@ -70,7 +70,7 @@ class ImagePanel extends JPanel {
         blankCellCol = col;
         bingoState = checkBingoState();
     }
-    private void increaseCounter() { // 점수횟수 1증가
+    private void increaseCounter() { // 시도횟수 1증가
         counter++;
     }
     public boolean processInput(int x, int y) { //완성인지 검토
@@ -106,14 +106,14 @@ class ImagePanel extends JPanel {
                 }
             }
         }
-        //점수횟수
+        //시도횟수
         {
             //문자열 폰트색상
             g.setFont(new Font("TimesRoman", Font.BOLD, 70)); 
             g.setColor(Color.MAGENTA);
-            // 점수 문자열 출력
-            g.drawString("점수", 600 + 20, 100);
-            // 점수 출력
+            // 시도횟수 문자열 출력
+            g.drawString("시도", 600 + 20, 100);
+            // 시도횟수 출력
             String counterString = String.format("%d", counter);
             g.drawString(counterString, 600 + 20, 200);
         }
